@@ -89,6 +89,10 @@ $split-values: str-split($values, "|");
 %reader-tag,
 %reader-category {
   .filter-topic-owner-posts{
-    display: inline
+    display: inline;
   }
+}
+
+.filter-topic-owner-posts{
+  display: hidden;
 }
