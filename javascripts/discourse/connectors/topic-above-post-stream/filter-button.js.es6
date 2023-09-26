@@ -12,7 +12,7 @@ export default class filterTopicOwnerPosts extends Component {
     @service site;
 
     topicOwnerUsername = this.topic.model.details.created_by.username;
-
+    isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name == settings.reader_category;
     @action
     filterPosts() {
         const topicController = this.topic;
