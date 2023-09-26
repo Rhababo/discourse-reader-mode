@@ -22,6 +22,10 @@ export default class filterTopicOwnerPosts extends Component {
     }
 
     isReaderTopic() {
+        console.log(settings.reader_tag);
+        console.log(this.topic.model.tags.includes(settings.reader_tag));
+        console.log(this.topic.model.category.name == settings.reader_category);
+        console.log(settings.reader_category);
         return this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name == settings.reader_category;
     }
 
