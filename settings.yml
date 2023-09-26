@@ -10,9 +10,8 @@ reader_category:
          slug values like: <b>category-one,category-two</b> <br>
          Be sure there are no spaces after the commas.'
 reader_tag:
-  type: list
-  list_type: tag
-  default: ""
+  type: string
+  default: "reader-mode"
   description:
-    en: 'Topics will have access to Reader Mode when given these tags.'
+    en: 'Topics will have access to Reader Mode when given this tag.'
 

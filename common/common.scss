@@ -88,11 +88,5 @@ $split-values: str-split($values, "|");
 /// Any changes outside of these will affect the entire forum!
 %reader-tag,
 %reader-category {
-  .filter-topic-owner-posts{
-    display: inline;
-  }
-}
 
-.filter-topic-owner-posts{
-  display: hidden;
 }
