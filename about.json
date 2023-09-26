@@ -1,7 +1,7 @@
 {
-  "name": "Reading Mode Button",
-  "about_url": "https://github.com/Rhababo/discourse-forum-adventure-style/blob/main/README.md",
-  "license_url": "https://github.com/Rhababo/discourse-forum-adventure-style/blob/main/LICENSE",
+  "name": "Discourse Reader Mode",
+  "about_url": "https://github.com/Rhababo/discourse-reader-mode/blob/master/README.md",
+  "license_url": "https://github.com/Rhababo/discourse-reader-mode/blob/master/LICENSE",
   "component": true,
   "minimum_discourse_version": "2.5.0.beta4"
 }
