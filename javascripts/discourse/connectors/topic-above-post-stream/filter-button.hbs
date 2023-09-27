@@ -1,4 +1,5 @@
-           {{#if isReaderTopic}}
+{{log @outletArgs}}
+{{#if isReaderTopic}}
             <DButton
                 @action={{fn (action "filterPosts")}}
                 @icon="book-reader"
