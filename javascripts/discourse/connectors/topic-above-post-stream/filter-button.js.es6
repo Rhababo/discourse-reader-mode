@@ -13,7 +13,7 @@ export default class filterTopicOwnerPosts extends Component {
     topicOwnerUsername = this.topic.model.details.created_by.username;
     isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase();
 
-    /*@action
+    @action
     readerMode(){
         this.filterPosts();
         this.closeSidebar();
@@ -21,9 +21,14 @@ export default class filterTopicOwnerPosts extends Component {
 
     @action
     closeSidebar(){
-
-
-    }*/
+        withPluginApi("1.0.0",(api) => {
+            api.decorateWidget('sidebar-toggle', helper => {
+                console.log(this);
+                console.log(helper.getModel());
+                return helper.getModel());
+            });
+        });
+    }
 
     @action
     filterPosts() {
