@@ -26,7 +26,7 @@ export default class filterTopicOwnerPosts extends Component {
         withPluginApi("1.0.0",(api) => {
             console.log("inside withPluginApi");
             console.log(this);
-            api.decorateWidget('sidebar-toggle', helper => {
+            api.decorateWidget("sidebar-toggle", helper => {
                 console.log("inside helper");
                 console.log(this);
                 console.log(helper.getModel());
