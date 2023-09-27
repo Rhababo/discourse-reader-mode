@@ -10,8 +10,6 @@ import { action } from "@ember/object";
 export default class filterTopicOwnerPosts extends Component {
     @controller topic;
 
-    @service appEvents;
-
     topicOwnerUsername = this.topic.model.details.created_by.username;
     isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase();
 
@@ -33,6 +31,7 @@ export default class filterTopicOwnerPosts extends Component {
         const postStream = topicController.model.postStream;
         const topicOwnerUser = topicController.model.details.created_by;
         topicController.send("filterParticipant", topicOwnerUser);
+        console.log(this);
     }
 
 
