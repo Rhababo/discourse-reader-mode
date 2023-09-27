@@ -25,7 +25,7 @@ export default class filterTopicOwnerPosts extends Component {
             api.decorateWidget('sidebar-toggle', helper => {
                 console.log(this);
                 console.log(helper.getModel());
-                return helper.getModel());
+                return helper.getModel();
             });
         });
     }
