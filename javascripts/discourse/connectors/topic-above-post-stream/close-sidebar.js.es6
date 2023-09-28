@@ -1,5 +1,4 @@
 import { inject as controller } from "@ember/controller";
-import {}
 import { action } from "@ember/object";
 
 export default class sidebarCloser extends Component {
