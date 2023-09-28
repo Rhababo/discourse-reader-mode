@@ -12,8 +12,8 @@ export default class readerMode extends Component {
 
     @action
     activateReaderMode(){
-        filterPosts();
-        closeSidebar();
+        filterPosts.call(this);
+        closeSidebar.call(this);
     }
 
 }
