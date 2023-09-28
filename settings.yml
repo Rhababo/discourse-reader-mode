@@ -2,13 +2,8 @@ reader_category:
   type: string
   default: ""
   description:
-    en: 'Enter the category slug of your category to have Reader Mode applied as it appears in the url. 
-         The slug is bold in the following example url: 
-         https://community.example.org/c/<b>category-slug</b>/3
-         <br><br>
-         Note: you may use more than one category slug by comma separating the
-         slug values like: <b>category-one,category-two</b> <br>
-         Be sure there are no spaces after the commas.'
+    en: 'Enter the category title of the category you would like to apply Reader Mode to.'
+
 reader_tag:
   type: string
   default: "reader-mode"

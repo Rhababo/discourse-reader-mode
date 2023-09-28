@@ -1,9 +1,9 @@
 
 {{#if isReaderTopic}}
             <DButton
-                @action={{fn (action "readerMode")}}
+                @action={{fn (action "activateReaderMode")}}
                 @icon="book-reader"
                 @translatedLabel="Reader Mode"
                 class="btn-default filter-topic-owner-posts topic-owner-{{topicOwnerUsername}}"
             />
-           {{/if}}
+{{/if}}
