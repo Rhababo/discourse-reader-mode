@@ -1,8 +1,8 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { inject as controller } from "@ember/controller";
-import { closeSidebar } from "../../components/close-sidebar";
-import { filterPosts } from "../../components/filter-topic-owner-posts";
+import SidebarCloser from "../../components/close-sidebar";
+import FilterTopicOwnerPosts from "../../components/filter-topic-owner-posts";
 
 export default class readerMode extends Component {
     @controller topic
@@ -12,8 +12,10 @@ export default class readerMode extends Component {
 
     @action
     activateReaderMode(){
-        filterPosts.call(this);
-        closeSidebar.call(this);
+        const filterComponent = new FilterTopicOwnerPosts(this.args);
+        const sidebarComponent = new SidebarCloser();
+        filterComponent.filterPosts();
+        sidebarComponent.closeSidebar();
     }
 
 }
