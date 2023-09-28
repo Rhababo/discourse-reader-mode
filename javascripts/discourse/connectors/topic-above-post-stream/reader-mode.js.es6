@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
-import { filterPosts } from "../components/filterTopicOwnerPosts";
-import { closeSidebar } from "./components/sidebarCloser";
+import { filterPosts } from "../../components/filterTopicOwnerPosts";
+import { closeSidebar } from "../../components/sidebarCloser";
 
 export default class readerMode extends Component {
     @controller topic
