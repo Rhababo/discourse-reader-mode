@@ -1,5 +1,6 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
+import { inject as controller } from "@ember/controller";
 import { closeSidebar } from "../../components/close-sidebar";
 import { filterPosts } from "../../components/filter-topic-owner-posts";
 
