@@ -12,7 +12,7 @@ export default class readerMode extends Component {
 
     @action
     activateReaderMode(){
-        const filterComponent = new FilterTopicOwnerPosts(...arguments;
+        const filterComponent = new FilterTopicOwnerPosts(...arguments);
         const sidebarComponent = new SidebarCloser();
         filterComponent.filterPosts();
         sidebarComponent.closeSidebar();
