@@ -1,12 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
-import { filterPosts } from "filterTopicOwnerPosts";
-import { closeSidebar } from "sidebarCloser";
-//import { withPluginApi } from "discourse/lib/plugin-api";
-//import DiscourseURL from "discourse/lib/url";
-//import I18n from "I18n";
-//import discourseComputed from "discourse-common/utils/decorators";
-//import User from "discourse/models/user";
+import { filterPosts } from "../components/filterTopicOwnerPosts";
+import { closeSidebar } from "./components/sidebarCloser";
 
 export default class readerMode extends Component {
     @controller topic
