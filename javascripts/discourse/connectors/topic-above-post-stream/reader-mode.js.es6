@@ -6,9 +6,7 @@ import Service, { inject as service } from "@ember/service";
 //import FilterTopicOwnerPosts from "../../components/filter-topic-owner-posts";
 
 export default class readerMode extends Component {
-    constructor() {
-        super(...arguments);
-    }
+
     @controller topic
     @controller application
     @service site
