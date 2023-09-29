@@ -19,7 +19,10 @@ export default class readerMode extends Component {
         const siteService = this.site;
         console.log(siteService);
         console.log(this.args);
-        this.application.toggleSidebar();
+        if(this.application.showSidebar){
+            this.application.toggleSidebar();
+        }
+
         this.filterPosts();
        // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
         //const sidebarComponent = new SidebarCloser();
