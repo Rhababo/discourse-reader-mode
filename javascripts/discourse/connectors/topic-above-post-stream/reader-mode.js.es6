@@ -10,6 +10,7 @@ export default class readerMode extends Component {
         super(...arguments);
     }
     @controller topic
+    @controller application
     @service site
 
     topicOwnerUsername = this.topic.model.details.created_by.username;
@@ -20,7 +21,7 @@ export default class readerMode extends Component {
         const siteService = this.site;
         console.log(siteService);
         console.log(this.args);
-        this.args.toggleSidebar();
+        this.application.toggleSidebar();
        // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
         //const sidebarComponent = new SidebarCloser();
         //filterComponent.filterPosts();
