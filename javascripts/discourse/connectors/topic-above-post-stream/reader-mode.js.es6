@@ -2,10 +2,13 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { inject as controller } from "@ember/controller";
 import Service, { inject as service } from "@ember/service";
-import SidebarCloser from "../../components/close-sidebar";
-import FilterTopicOwnerPosts from "../../components/filter-topic-owner-posts";
+//import SidebarCloser from "../../components/close-sidebar";
+//import FilterTopicOwnerPosts from "../../components/filter-topic-owner-posts";
 
 export default class readerMode extends Component {
+    constructor() {
+        super(...arguments);
+    }
     @controller topic
     @service site
 
@@ -16,6 +19,8 @@ export default class readerMode extends Component {
     activateReaderMode(){
         const siteService = this.site;
         console.log(siteService);
+        console.log(this.args);
+        this.args.toggleSidebar();
        // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
         //const sidebarComponent = new SidebarCloser();
         //filterComponent.filterPosts();
