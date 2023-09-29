@@ -20,10 +20,18 @@ export default class readerMode extends Component {
         console.log(siteService);
         console.log(this.args);
         this.application.toggleSidebar();
+        this.filterPosts();
        // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
         //const sidebarComponent = new SidebarCloser();
         //filterComponent.filterPosts();
        // sidebarComponent.closeSidebar();
+    }
+    filterPosts() {
+        const topicController = this.topic;
+        //const postStream = topicController.model.postStream;
+        const topicOwnerUser = topicController.model.details.created_by;
+        topicController.send("filterParticipant", topicOwnerUser);
+        console.log(this);
     }
 
 }
