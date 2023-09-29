@@ -15,10 +15,10 @@ export default class readerMode extends Component {
     activateReaderMode(){
         const siteService = this.site;
         console.log(siteService);
-        const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
-        const sidebarComponent = new SidebarCloser();
-        filterComponent.filterPosts();
-        sidebarComponent.closeSidebar();
+       // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
+        //const sidebarComponent = new SidebarCloser();
+        //filterComponent.filterPosts();
+       // sidebarComponent.closeSidebar();
     }
 
 }
