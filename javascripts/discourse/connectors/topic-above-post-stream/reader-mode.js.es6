@@ -39,7 +39,7 @@ export default class readerMode extends Component {
 
     @action
     deactivateReaderMode(){
-        if (this.application.sidebarEnabled()&&!this.application.showSidebar){
+        if (this.application.sidebarEnabled && !this.application.showSidebar){
             this.application.toggleSidebar();
         }
         if(this.postStream.userFilters.length > 0) {
