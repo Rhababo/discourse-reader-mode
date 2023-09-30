@@ -29,13 +29,15 @@ export default class readerMode extends Component {
         else{
             this.filterPosts();
             this.readerModeActive = true;
-            DiscourseURL.jumpToPost(1);
+
+
         }
     }
-    filterPosts() {
+    async filterPosts() {
         const topicController = this.topic;
         const topicOwnerUser = topicController.model.details.created_by;
-        topicController.send("filterParticipant", topicOwnerUser);
+        await topicController.send("filterParticipant", topicOwnerUser);
+        DiscourseURL.jumpToPost(1);
     }
 
 }
