@@ -39,7 +39,7 @@ export default class readerMode extends Component {
         const topicController = this.topic;
         const topicOwnerUser = topicController.model.details.created_by;
         await topicController.send("filterParticipant", topicOwnerUser);
-        await this.delay(1000);
+        //await this.delay(1000);
 
         DiscourseURL.jumpToPost(1, {anchor: true});
     }
