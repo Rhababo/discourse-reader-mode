@@ -16,14 +16,20 @@ export default class readerMode extends Component {
 
     @action
     activateReaderMode(){
+        const postStream = this.topic.model.postStream;
         const siteService = this.site;
         console.log(siteService);
         console.log(this.args);
         if(this.application.showSidebar){
             this.application.toggleSidebar();
         }
+        if(postStream.userFilters.length > 0){
+            postStream.cancelFilter();
+        }
+        else{
+            this.filterPosts();
+        }
 
-        this.filterPosts();
        // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
         //const sidebarComponent = new SidebarCloser();
         //filterComponent.filterPosts();
@@ -31,7 +37,6 @@ export default class readerMode extends Component {
     }
     filterPosts() {
         const topicController = this.topic;
-        //const postStream = topicController.model.postStream;
         const topicOwnerUser = topicController.model.details.created_by;
         topicController.send("filterParticipant", topicOwnerUser);
         console.log(this);
