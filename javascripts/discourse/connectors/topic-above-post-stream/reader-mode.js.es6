@@ -54,7 +54,7 @@ export default class readerMode extends Component {
         await topicController.send("filterParticipant", topicOwnerUser);
         await this.delay(100);
 
-        DiscourseURL.jumpToPost(1, {anchor: true});
+        DiscourseURL.jumpToPost(1);
     }
 
     delay(ms) {
