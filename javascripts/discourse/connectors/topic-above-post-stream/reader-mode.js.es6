@@ -27,12 +27,11 @@ export default class readerMode extends Component {
         }
         if(this.postStream.userFilters.length > 0){
             this.postStream.cancelFilter();
+            this.readerModeActive = false;
         }
         else{
             this.filterPosts();
             this.readerModeActive = true;
-
-
         }
     }
     async filterPosts() {
