@@ -1,16 +1,12 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { inject as controller } from "@ember/controller";
-import Service, { inject as service } from "@ember/service";
 import DiscourseURL from "discourse/lib/url";
-//import SidebarCloser from "../../components/close-sidebar";
-//import FilterTopicOwnerPosts from "../../components/filter-topic-owner-posts";
 
 export default class readerMode extends Component {
 
     @controller topic
     @controller application
-    @service site
 
     topicOwnerUsername = this.topic.model.details.created_by.username;
     isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase();
@@ -18,22 +14,40 @@ export default class readerMode extends Component {
     postStream = this.topic.model.postStream;
 
 
+    isReaderModeActive(){
+        return !(this.application.showSidebar || this.postStream.userFilters.length == 0);
+    }
+
     @action
-    activateReaderMode(){
-        if(this.application.showSidebar||this.readerModeActive){
-            if(this.application.sidebarEnabled){
-                this.application.toggleSidebar();
-            }
-        }
-        if(this.postStream.userFilters.length > 0){
-            this.postStream.cancelFilter();
+    toggleReaderMode(){
+        this.readerModeActive = this.isReaderModeActive();
+        if(!this.readerModeActive){
+            this.activateReaderMode();
+        } else {
+            this.deactivateReaderMode();
             this.readerModeActive = false;
         }
-        else{
-            this.filterPosts();
-            this.readerModeActive = true;
-        }
     }
+    @action
+    activateReaderMode(){
+        if(this.application.showSidebar){
+            this.application.toggleSidebar();
+        }
+        this.filterPosts();
+        this.readerModeActive = true;
+    }
+
+    @action
+    deactivateReaderMode(){
+        if (this.application.sidebarEnabled()&&!this.application.showSidebar){
+            this.application.toggleSidebar();
+        }
+        if(this.postStream.userFilters.length > 0) {
+            this.postStream.cancelFilter();
+        }
+        this.readerModeActive = false;
+    }
+
     async filterPosts() {
         const topicController = this.topic;
         const topicOwnerUser = topicController.model.details.created_by;

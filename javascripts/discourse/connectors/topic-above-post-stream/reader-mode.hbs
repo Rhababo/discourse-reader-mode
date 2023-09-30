@@ -1,7 +1,7 @@
 {{log @outletArgs}}
 {{#if isReaderTopic}}
             <DButton
-                @action={{fn (action "activateReaderMode")}}
+                @action={{fn (action "toggleReaderMode")}}
                 @icon="book-reader"
                 @translatedLabel="Reader Mode"
                 class="btn-default filter-topic-owner-posts topic-owner-{{topicOwnerUsername}}"
