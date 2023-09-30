@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { inject as controller } from "@ember/controller";
 import Service, { inject as service } from "@ember/service";
+import DiscourseURL from "discourse/lib/url";
 //import SidebarCloser from "../../components/close-sidebar";
 //import FilterTopicOwnerPosts from "../../components/filter-topic-owner-posts";
 
@@ -19,9 +20,6 @@ export default class readerMode extends Component {
     @action
     activateReaderMode(){
         const postStream = this.topic.model.postStream;
-        const siteService = this.site;
-        console.log(siteService);
-        console.log(this.args);
         if(this.application.showSidebar||this.readerModeActive){
             this.application.toggleSidebar();
         }
@@ -31,18 +29,13 @@ export default class readerMode extends Component {
         else{
             this.filterPosts();
             this.readerModeActive = true;
+            DiscourseURL.jumpToPost(1);
         }
-
-       // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
-        //const sidebarComponent = new SidebarCloser();
-        //filterComponent.filterPosts();
-       // sidebarComponent.closeSidebar();
     }
     filterPosts() {
         const topicController = this.topic;
         const topicOwnerUser = topicController.model.details.created_by;
         topicController.send("filterParticipant", topicOwnerUser);
-        console.log(this);
     }
 
 }
