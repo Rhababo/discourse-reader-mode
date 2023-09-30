@@ -15,18 +15,18 @@ export default class readerMode extends Component {
     topicOwnerUsername = this.topic.model.details.created_by.username;
     isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase();
     readerModeActive = false;
+    postStream = this.topic.model.postStream;
 
 
     @action
     activateReaderMode(){
-        const postStream = this.topic.model.postStream;
         if(this.application.showSidebar||this.readerModeActive){
             if(this.application.sidebarEnabled){
                 this.application.toggleSidebar();
             }
         }
-        if(postStream.userFilters.length > 0){
-            postStream.cancelFilter();
+        if(this.postStream.userFilters.length > 0){
+            this.postStream.cancelFilter();
         }
         else{
             this.filterPosts();
@@ -40,8 +40,10 @@ export default class readerMode extends Component {
         const topicOwnerUser = topicController.model.details.created_by;
         await topicController.send("filterParticipant", topicOwnerUser);
         await this.delay(1000);
-        DiscourseURL.jumpToPost(1);
+
+        DiscourseURL.jumpToPost(1, {anchor: true});
     }
+
     delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
