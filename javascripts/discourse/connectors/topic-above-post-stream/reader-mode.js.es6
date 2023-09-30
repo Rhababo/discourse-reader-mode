@@ -13,6 +13,8 @@ export default class readerMode extends Component {
 
     topicOwnerUsername = this.topic.model.details.created_by.username;
     isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase();
+    readerModeActive = false;
+
 
     @action
     activateReaderMode(){
@@ -20,7 +22,7 @@ export default class readerMode extends Component {
         const siteService = this.site;
         console.log(siteService);
         console.log(this.args);
-        if(this.application.showSidebar){
+        if(this.application.showSidebar||this.readerModeActive){
             this.application.toggleSidebar();
         }
         if(postStream.userFilters.length > 0){
@@ -28,6 +30,7 @@ export default class readerMode extends Component {
         }
         else{
             this.filterPosts();
+            this.readerModeActive = true;
         }
 
        // const filterComponent = new FilterTopicOwnerPosts({owner: this.owner, args: this.args});
