@@ -21,7 +21,9 @@ export default class readerMode extends Component {
     activateReaderMode(){
         const postStream = this.topic.model.postStream;
         if(this.application.showSidebar||this.readerModeActive){
-            this.application.toggleSidebar();
+            if(this.application.sidebarEnabled){
+                this.application.toggleSidebar();
+            }
         }
         if(postStream.userFilters.length > 0){
             postStream.cancelFilter();
@@ -37,7 +39,11 @@ export default class readerMode extends Component {
         const topicController = this.topic;
         const topicOwnerUser = topicController.model.details.created_by;
         await topicController.send("filterParticipant", topicOwnerUser);
+        await this.delay(1000);
         DiscourseURL.jumpToPost(1);
+    }
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
 }
