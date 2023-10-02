@@ -32,6 +32,7 @@ export default class readerMode extends Component {
     activateReaderMode(){
         if(this.application.showSiteHeader){
             this.application.showSiteHeader = false;
+            this.application.showTop = false;
         }
         if(this.application.showSidebar){
             this.application.toggleSidebar();
@@ -44,6 +45,7 @@ export default class readerMode extends Component {
     deactivateReaderMode(){
         if (!this.application.showSiteHeader){
             this.application.showSiteHeader = true;
+            this.application.showTop = true;
         }
         if (this.application.sidebarEnabled && !this.application.showSidebar){
             this.application.toggleSidebar();
