@@ -20,6 +20,7 @@ export default class readerMode extends Component {
 
     @action
     toggleReaderMode(){
+
         this.readerModeActive = this.isReaderModeActive();
         if(!this.readerModeActive){
             this.activateReaderMode();
@@ -30,6 +31,7 @@ export default class readerMode extends Component {
     }
     @action
     activateReaderMode(){
+        document.body.classList.add("ReaderMode");
         if(this.application.showSiteHeader){
             this.application.showSiteHeader = false;
             this.application.showTop = false;
@@ -43,6 +45,7 @@ export default class readerMode extends Component {
 
     @action
     deactivateReaderMode(){
+        document.body.classList.remove("ReaderMode");
         if (!this.application.showSiteHeader){
             this.application.showSiteHeader = true;
             this.application.showTop = true;
