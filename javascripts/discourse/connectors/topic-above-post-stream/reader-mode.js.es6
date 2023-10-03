@@ -9,7 +9,8 @@ export default class readerMode extends Component {
     @controller application
 
     topicOwnerUsername = this.topic.model.details.created_by.username;
-    isReaderTopic = this.topic.model.tags.includes(settings.reader_tag) || this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase();
+    isReaderTopic = !this.topic.model.isPrivateMessage && (this.topic.model.tags.includes(settings.reader_tag) ||
+        this.topic.model.category.name.toLowerCase() == settings.reader_category.toLowerCase());
     readerModeActive = false;
     postStream = this.topic.model.postStream;
 
